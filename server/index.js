@@ -2,7 +2,6 @@
 const express = require('express'); // Importando módulo NPM (libería)
 require('./utils/dbMongo.js'); // Abrir conexión a la BBDD Mongo
 require('dotenv').config()
-
 // Rutas
 const landing = require('./routes/landings');
 const neas = require('./routes/neas');
@@ -35,6 +34,5 @@ app.use(notFound);
 const server = app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })
-
 
 module.exports = server;
