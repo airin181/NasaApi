@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;500;700&display=swap');
+
+div.MuiBox-root.css-1lvtzne{
+    justify-content: flex-end;
+}
+
+div.MuiBox-root.css-1t6c9ts{
+    justify-content: flex-end;
+}
+
+.navbar-div{
+    padding-left: 1em;
+    margin-right: 1em;
+}
+
+.nav__element{
+    margin: 1em;
+    text-decoration: none;
+    font-family: 'Rajdhani', sans-serif;
+    color: white;
+}
+
+.nav__element:hover{
+    
+    text-decoration: underline;
+
+}
+
+@media only screen and (max-width: 600px){
+
+    .navbar-div{
+        padding-left:0;
+        margin-right:0;
+    
+}
+}
+
