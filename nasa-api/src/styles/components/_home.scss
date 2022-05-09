@@ -1,0 +1,7 @@
+@import '../utils/mixins.scss';
+
+.main {
+    @include column-center;
+    margin-top: 10px;
+    margin-bottom: 20px; //para footer
+  }
