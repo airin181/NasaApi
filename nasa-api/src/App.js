@@ -1,6 +1,6 @@
 import Header from './components/Header';
 import Main from './components/Main';
-import Footer from './components/Footer';
+
 import { BrowserRouter } from 'react-router-dom';
 import './../src/styles/styles.scss'
 
@@ -11,7 +11,6 @@ function App() {
         <Header />
         <Main />
       </BrowserRouter>
-      <Footer />
 
     </div>
   );
