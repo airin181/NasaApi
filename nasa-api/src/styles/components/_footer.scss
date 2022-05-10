@@ -1,5 +1,21 @@
 @import '../utils/mixins.scss';
+@import '../utils/variables.scss';
 
 .footer{
     @include column-center
+}
+
+
+.footer{
+    @include column-center;
+    background-color: $blue;
+    color: $white;
+    text-align: center;
+    left: 0;
+    font-family: $font2;
+    height: 34px;
+    margin: 0;
+    position:static;
+    bottom: 0;
+    width: 100%;
 }
