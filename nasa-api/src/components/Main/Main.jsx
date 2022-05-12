@@ -16,7 +16,7 @@ const Main = () => {
         <Route element={<LandingsList/>} path='/neas/list'/>  */}
 
     </Routes>
-    <Footer />
+   {/*  <Footer /> */}
     
   </div>;
 };
