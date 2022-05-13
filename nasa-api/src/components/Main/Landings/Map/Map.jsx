@@ -11,9 +11,6 @@ const Map = () => {
   //landing trae un array de objetos y 2 métodos de estado por CONTEXT
   const {landing, setOption, setSelect, landingFilter } = useContext(landingsContext)
 
-  
-  console.log('c.log de landingFilter en MAAPPP',landingFilter);
-
  
   const handleSubmit = (event) => {  //submit del form de los filtros. Actualiza estado select que está en el padre (Landings)
     event.preventDefault();

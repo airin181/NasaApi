@@ -1,5 +1,5 @@
 import { React, useContext, useState } from 'react'
-import { landingsContext } from './../../../../context/landingsContext';
+import { landingsContext } from '../../../../context/landingsContext';
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
@@ -16,13 +16,28 @@ function LandingsForm() {
   const { register, handleSubmit } = useForm();
   const { createLanding } = useContext(landingsContext); 
   
-/* const [send, setSend] = useState(false); // mensaje de pokemon guardado 
- */
+ const [send, setSend] = useState(false); // mensaje de pokemon guardado 
+ 
 
    const onSubmit = (data) => {
-    createLanding(data);
-    console.log('nuevo landing creado:',data);
-   /*  setSend(true) */
+    const landingData = {
+
+      fall: data.fall,
+      geolocation:
+       {latitude: data.reclat,
+        longitude: data.reclong},
+      id: data.id,
+      mass: data.mass,
+      name: data.name,
+      nametype: data.nametype,
+      recclass: data.recclass,
+      reclat: data.reclat,
+      reclong: data.reclong,
+      year: data.year
+
+    }
+    createLanding(landingData);
+    setSend(true) 
   }  
 
   return (
@@ -32,16 +47,17 @@ function LandingsForm() {
       <form className='form-div' onSubmit={handleSubmit( onSubmit )}>
 
       <TextField
-          style={{ width: "385px", margin: "5px" }}
+          style={{ margin: "5px" }}
           type="text"
           label="Name"
           variant="outlined"
           name="name"
           {...register("name")}
+          required
 
         />
         <TextField
-          style={{ width: "385px", margin: "5px" }}
+          style={{ margin: "5px" }}
           type="text"
           label="Fall"
           variant="outlined"
@@ -50,8 +66,20 @@ function LandingsForm() {
           minLength='3'
           required
         />
+
+
+<TextField
+          style={{  margin: "5px" }}
+          type="text"
+          label="Name Type"
+          variant="outlined"
+          name="nametype"
+          {...register("nametype")}
+          required
+        />
+
         <TextField
-          style={{ width: "385px", margin: "5px" }}
+          style={{ margin: "5px" }}
           type="number"
           label="ID"
           variant="outlined"
@@ -60,56 +88,60 @@ function LandingsForm() {
           required
         />
         <TextField
-          style={{ width: "385px", margin: "5px" }}
+          style={{  margin: "5px" }}
           type="number"
           label="Mass"
           variant="outlined"
           name="mass"
           {...register("mass")}
+          required
         />
 
         <TextField
-          style={{ width: "385px", margin: "5px" }}
+          style={{  margin: "5px" }}
           type="text"
           label="Clase"
           variant="outlined"
-          name="class"
-          {...register("class")}
+          name="recclass"
+          {...register("recclass")}
+          required
         />
 
         <TextField
-          style={{ width: "385px", margin: "5px" }}
+          style={{  margin: "5px" }}
           type="text"
           label="Latitude"
           variant="outlined"
-          name="lat"
-          {...register("lat")}
+          name="reclat"
+          {...register("reclat")}
+          required
         />  
 
         <TextField
-          style={{ width: "385px", margin: "5px" }}
+          style={{ margin: "5px" }}
           type="text"
           label="Longitude"
           variant="outlined"
-          name="long"
-          {...register("long")}
+          name="reclong"
+          {...register("reclong")}
+          required
         />    
 
          <TextField
-          style={{ width: "385px", margin: "5px" }}
+          style={{  margin: "5px" }}
           type="date"
           label=""
           variant="outlined"
           name="year"
           {...register("year")}
+          required
         />     
 
          <div className='save-landing'>
+         {send ? <Stack><Alert severity="success">Landing saved!</Alert></Stack>: ""}
           <Button type="submit" variant="contained">SAVE</Button>
-        {/*   {send ? <Stack><Alert severity="success">Landing saved!</Alert>
-          </Stack>: ""} */}
-{/*           <Button type="submit" variant="outlined" component={Link} to="/pokedex">CHECK ALL LANDINGS</Button>
- */}        </div> 
+          
+       </div> 
       </form>
     </div>
   )
