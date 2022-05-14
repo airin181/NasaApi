@@ -16,3 +16,17 @@
     justify-content: center;
     align-content: center;
 }
+
+@mixin wrap-center {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+
+@mixin p{
+    line-height: 1.82;
+    text-align: justify;
+}

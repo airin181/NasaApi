@@ -1,0 +1,55 @@
+@import '../utils/mixins.scss';
+
+.form-div{
+
+@include column-center;
+    margin-bottom: 2em;
+    margin-top: 1em;
+    width: 100%;
+
+    & > div{
+        width: 70vw;
+        margin: 5px;
+        max-width: 640px;
+    }
+}
+
+.form{
+
+@include column-center;
+    align-items: flex-start;
+}
+
+.h1-form{
+    font-size: 33px;
+    font-family: "Rajdhani";
+    margin-bottom: 0;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.save-landing{
+   @include column-center;
+    width: 270px;
+    justify-content: space-between;
+    margin-top: 1em;
+
+    & > button {
+        margin-top: 1em;
+    }
+}
+
+.save-msg a{
+    margin-top:1em;
+}
+
+.form-buttons{
+    display: flex;
+    
+}
+
+.div-gif{
+
+    @include column-center
+
+}

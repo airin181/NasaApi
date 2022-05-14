@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;700&display=swap');
+
+.form-filter{
+ @include row-center;
+ justify-content: flex-start;
+    margin-bottom: 0.4em;
+    margin-top: 3em;
+    height: 24px;
+    font-family: "Space Grotesk", sans-serif;
+}
+
+
+.filter-submit{
+    border-color: #1876d0;
+    border-radius: 5px;
+    color: white;
+    border-style: none;
+    background-color: #1876d1;
+    padding: 4px;
+    width: 66px;
+}
+
+.filter-input{
+    width: 57px;
+    margin-right: 5px;
+    border-color: #1876d0;
+    border-radius: 5px;
+    color: #1876d0;
+    border-width: 1px;
+    padding: 3px;
+   
+}
+
+
+.filter-by{
+    margin-right: 5px;
+    border-color: #1876d0;
+    border-radius: 5px;
+    color: #1876d0;
+    padding: 3px;
+    
+    max-width: 65px;
+}

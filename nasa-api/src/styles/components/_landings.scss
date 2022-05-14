@@ -1,0 +1,28 @@
+@import '../utils/mixins.scss';
+@import '../utils/variables.scss';
+
+.landings-container {
+    @include column-center;
+    margin-top: 10px;
+    margin-bottom: 20px; //para footer
+    text-align: center;
+    font-family: $font1;
+    margin: 2em;
+    margin-top: 0;
+    justify-content: flex-start;
+    height: 100vh;
+  }
+
+  .landings-container h1{
+      text-decoration: underline;
+  }
+
+#description{
+@include p;
+max-width: 775px;
+
+   }
+
+.list-landings li{
+  list-style-type: square;
+}
