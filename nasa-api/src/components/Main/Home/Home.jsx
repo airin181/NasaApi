@@ -65,7 +65,7 @@ const Home = () => {
         <p id="date">{apodData.date}</p>
       </section>
 
-      {video ? <iframe width="420" height="315" src={apodData.url} title="myFrame"></iframe> : <img width="420" height="315" alt="astronomy" src={apodData.url}></img>}
+      <img alt="astronomy" src={apodData.url}></img>
 
 
       <div className="description-div">

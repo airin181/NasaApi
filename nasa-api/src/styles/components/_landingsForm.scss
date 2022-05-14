@@ -1,7 +1,10 @@
+@import '../utils/mixins.scss';
+
 .form-div{
 
 @include column-center;
     margin-bottom: 2em;
+    margin-top: 1em;
     width: 100%;
 
     & > div{
@@ -16,6 +19,7 @@
 @include column-center;
     align-items: flex-start;
 }
+
 .h1-form{
     font-size: 33px;
     font-family: "Rajdhani";
@@ -42,4 +46,10 @@
 .form-buttons{
     display: flex;
     
+}
+
+.div-gif{
+
+    @include column-center
+
 }
