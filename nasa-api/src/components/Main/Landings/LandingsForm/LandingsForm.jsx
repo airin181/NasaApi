@@ -43,7 +43,7 @@ function LandingsForm() {
     <div>
 <div className='div-gif'>
       <h1 className='h1-form'>Register your own landing</h1>
-      <iframe src="https://giphy.com/embed/du9tXPzxB6grJuuO0J" width="80" height="30" frameborder="0" class="giphy-embed" allowfullscreen=""></iframe>
+      <iframe src="https://giphy.com/embed/du9tXPzxB6grJuuO0J" width="80" height="30" frameborder="0" class="giphy-embed" allowfullscreen="" title="astronaut"></iframe>
       
 </div>
       <form className='form-div' onSubmit={handleSubmit( onSubmit )}>

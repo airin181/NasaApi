@@ -6,24 +6,16 @@ import React, { useEffect, useState } from 'react';
 
 const Home = () => {
 
-/*   const [apod, setApod] = useState(false) // delete!!?
- */  const [apodData, setApodData] = useState("") // data in obj from 
+  /*   const [apod, setApod] = useState(false) // delete!!?
+   */
+  const [apodData, setApodData] = useState("") // obj (date, expl, mediatype, title & url) 
   const [video, setVideo] = useState(false) // checks if it's a video or img
 
 
 
-  //check if it's a video or img
-  const checkVideo = async () => {
-    const urlData = apodData.url
-    if (await urlData.includes("youtube")) {
-      setVideo(true)
-    } else {
-      setVideo(false)
-    }
-  }
-
-// eslint-disable-next-line 
+  // eslint-disable-next-line 
   useEffect(() => { getApod() }, [])
+
 
   const getApod = async () => {
 
@@ -31,7 +23,6 @@ const Home = () => {
       //${process.env.REACT_APP_NASA_APIKEY}
       const response = await axios.get(`https://api.nasa.gov/planetary/apod?api_key=8CRAxXHyBa5Gv10HlGZjGResR2DuUTRJWiY5iNTn`);
       const result = response.data;
-
 
 
       const data = {
@@ -42,12 +33,25 @@ const Home = () => {
         "url": result.url || ""
       }
 
-      /* setApod(true) */
       setApodData(data)
       checkVideo();
 
     } catch (e) {
       console.log('ERROR because...', e);
+    }
+  }
+
+
+
+
+
+  //check if it's a video or img
+  const checkVideo = async () => {
+    const mediaType = apodData.media_type
+    if (await mediaType === "video") {
+      setVideo(true)
+    } else {
+      setVideo(false)
     }
   }
 
@@ -65,7 +69,8 @@ const Home = () => {
         <p id="date">{apodData.date}</p>
       </section>
 
-      <img alt="astronomy" src={apodData.url}></img>
+{video? <iframe src={apodData.url} frameborder="0" title="apod video"></iframe> : <img alt="astronomy" src={apodData.url}></img>}
+      
 
 
       <div className="description-div">

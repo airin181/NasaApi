@@ -15,8 +15,9 @@ const LandingsList = () => {
 
 
   const { landing } = useContext(landingsContext);
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(false); // scroll to top
 
+  //flecha to top visible o no
   const toggleVisible = () => {
     const scrolled = document.documentElement.scrollTop;
     if (scrolled > 300) {
@@ -27,12 +28,11 @@ const LandingsList = () => {
     }
   };
 
+  
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
-      /* you can also use 'auto' behaviour
-         in place of 'smooth' */
     });
   };
 
@@ -42,7 +42,8 @@ const LandingsList = () => {
   return (
     <>
       <div className='back-div'>
-        <img src="https://img.icons8.com/material/30/053a92/chevron-left--v1.png" style={{ width: "23px" }} />
+      
+        <img src="https://img.icons8.com/material/30/053a92/chevron-left--v1.png" style={{ width: "23px" }} alt="back" />
         <Button type="submit" variant="contained" component={Link} to="/landings/" id="back">BACK</Button>
       </div>
 

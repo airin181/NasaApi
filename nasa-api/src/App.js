@@ -52,6 +52,7 @@ const App = () => {
 
 
   //petición HTTP GET con filtros
+
   const getLandingsByClassOrMass = async () => { //fetch para filtrar por clase
 
     try {
@@ -63,6 +64,7 @@ const App = () => {
       throw error
     }
   }
+  // eslint-disable-next-line
   useEffect(() => { getLandingsByClassOrMass() }, [select, option])
 
 

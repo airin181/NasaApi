@@ -12,7 +12,7 @@ const Landings = () => {
 
   return (<>
     <div className='back-div'>
-      <img src="https://img.icons8.com/material/30/053a92/chevron-left--v1.png" style={{ width: "23px" }} />
+      <img src="https://img.icons8.com/material/30/053a92/chevron-left--v1.png" style={{ width: "23px" }} alt="back"/>
       <Button type="submit" variant="contained" component={Link} to="/" id="back">BACK</Button>
     </div>
     <div className="landings-container">

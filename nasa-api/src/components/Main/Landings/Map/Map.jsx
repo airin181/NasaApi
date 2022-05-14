@@ -4,7 +4,7 @@ import { landingsContext } from './../../../../context/landingsContext';
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 import Iconlocation from './IconLocation.js'
 import './react-leaflet.css';
-import 'leaflet/dist/leaflet.css';
+import "leaflet/dist/leaflet.css";
 
 const Map = () => {
 
