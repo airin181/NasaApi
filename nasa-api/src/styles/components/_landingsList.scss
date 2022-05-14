@@ -1,0 +1,48 @@
+@import '../utils/mixins.scss';
+
+.div-general {
+    @include column-center;
+    flex-wrap: wrap;
+}
+
+.list-general {
+    margin: 2em;
+    margin-top: 0;
+    @include wrap-center;
+    @include p;
+
+    & h1 {
+        text-align: center;
+    }
+
+}
+
+#back {
+    margin: 0;
+    box-shadow: none;
+    background-color: transparent;
+    color: #053a92;
+    padding: 0;
+}
+
+.back-div {
+    @include row-center;
+    justify-content: flex-start;
+    margin-top: 2em;
+    margin-left: 2em;
+}
+
+
+.scroll-button {
+    position: fixed;
+    width: 100%;
+    bottom: 40px;
+    height: 20px;
+    font-size: 3rem;
+    z-index: 1;
+    cursor: pointer;
+    color: #053a92;
+    appearance: none;
+    background-color: transparent;
+    border-width: 0;
+}

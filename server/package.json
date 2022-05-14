@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "node index.js",
+    "start": "nodemon index.js",
     "otraTarea": "echo \"Otra tarea\" && exit 1",
     "generate-docs": "jsdoc -c ./jsdoc.json"
   },
