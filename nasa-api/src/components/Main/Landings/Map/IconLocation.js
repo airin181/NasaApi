@@ -5,7 +5,7 @@ const IconLocation = L.icon({
 
     iconUrl: icon,
 
-    iconSize: new L.Point(60, 75)
+    iconSize: new L.Point(30, 36)
 
 })
 

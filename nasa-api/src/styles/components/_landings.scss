@@ -8,6 +8,7 @@
     text-align: center;
     font-family: $font1;
     margin: 2em;
+    margin-top: 0;
     justify-content: flex-start;
     height: 100vh;
   }
@@ -17,9 +18,9 @@
   }
 
 #description{
-    line-height:1.82;
-    text-align: justify;
-    width: 70%;
+@include p;
+max-width: 775px;
+
    }
 
 .list-landings li{

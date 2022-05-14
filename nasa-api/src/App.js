@@ -1,5 +1,6 @@
 import Header from './components/Header';
 import Main from './components/Main';
+/* import Footer from './components/Footer'; */
 
 import { BrowserRouter } from 'react-router-dom';
 import './../src/styles/styles.scss'
@@ -33,9 +34,8 @@ const App = () => {
 
     try {
       const response = await axios.get('http://localhost:5000/api/astronomy/landings/all')
-      const result = await response.data/* .slice(0, 50) */
+      const result = await response.data.slice(0, 50)
       setLanding(result)
-      console.log('c.log de todos los landings', result);
 
     } catch (error) {
       throw error
@@ -56,11 +56,7 @@ const App = () => {
 
     try {
       const response = await axios.get(`http://localhost:5000/api/astronomy/landings/${select}/${option}`)
-      console.log('clog de response en MAP', response);
-      //http://localhost:5000/api/astronomy/landings/mass/2000
       const result = await response.data
-      console.log('c.log de result de getLandingsByClassOrMas ANDINGS', result);
-
       setLandingFilter(result)
 
     } catch (error) {
@@ -128,9 +124,10 @@ const App = () => {
       <BrowserRouter>
         <Header />
         <landingsContext.Provider value={data}>
-          <Main />
+          <Main style={{ display: "flex" }} />
         </landingsContext.Provider>
       </BrowserRouter>
+     {/*  <Footer /> */}
 
     </div>
   );

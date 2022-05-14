@@ -1,6 +1,5 @@
 import { React, useContext, useState } from 'react'
 import { landingsContext } from '../../../../context/landingsContext';
-import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
 
@@ -40,10 +39,13 @@ function LandingsForm() {
     setSend(true) 
   }  
 
-  return (
+ return (
     <div>
-
+<div className='div-gif'>
       <h1 className='h1-form'>Register your own landing</h1>
+      <iframe src="https://giphy.com/embed/du9tXPzxB6grJuuO0J" width="80" height="30" frameborder="0" class="giphy-embed" allowfullscreen=""></iframe>
+      
+</div>
       <form className='form-div' onSubmit={handleSubmit( onSubmit )}>
 
       <TextField

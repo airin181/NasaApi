@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Varela+Round&display=swap');
+@import '../utils/variables.scss';
+@import '../utils/mixins.scss';
+
+
+body {
+  font-family: $font1
+}
+
+
+.card-container{
+  @include column-center;
+  max-width: 299px;
+  flex-wrap: wrap;
+  text-align: center;
+  width: 35vw;
+  background-color: white;
+  min-width: 230px;
+  border-radius: 15px;
+  box-shadow: -1px 15px 30px -12px black;
+  z-index: 0;
+  margin: 3em;
+  position: relative;
+}
+
+.figure-asteroid{
+  position: relative;
+  height: 115px;
+  margin-bottom: 35px;
+
+  & > img {
+    width: 196px;
+    position: absolute;
+    top: -59px;
+    left: -96px;
+  }
+}
+
+.card-content{
+  @include column-center
+}
+
+.card-content p:nth-child(1){
+  font-size: 11px;
+    margin: 0;
+}
+
+.card-container p:nth-child(2){
+  background-color: #053a92;
+  color: white;
+  margin: 14px;
+  font-size: 23px;
+  padding-right: 1em;
+    padding-left: 1em;
+    margin-top: 5px;
+}
+
+
+.card-container p:nth-child(3){
+  margin-bottom: 0;
+}
+
+.card-container p:nth-child(4){
+  margin-top: 0;
+}
+

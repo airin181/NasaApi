@@ -21,17 +21,17 @@ const Map = () => {
     setOption(option);
   }
 
-
     return <div>
 
       <form onSubmit={handleSubmit} className="form-filter">
         
-        <select name="by">
+        <select name="by" className="filter-by">
           <option value="mass" type="number" >Mass</option>
           <option value="class" type="text">Class</option>
         </select>
-        <input type="text" name="option" />
-        <input type="submit" />
+        
+        <input type="text" name="option"  placeholder= "Ex: L6, CM2 or 2000, 5000..." className="filter-input"/>
+        <input type="submit" value="Filter" className="filter-submit"/>
       </form>
       
 
@@ -75,7 +75,7 @@ landing && landingFilter?
                 <li><b>Year: </b>{element.year}</li>
               </ul>
             </Popup>
-          </Marker>) : console.log("landingFilter no furula")) 
+          </Marker>) : "") 
 
            : "" } 
 
