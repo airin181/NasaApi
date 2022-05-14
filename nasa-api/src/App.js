@@ -21,6 +21,8 @@ const App = () => {
   const [select, setSelect] = useState(""); //mass or class
   const [option, setOption] = useState(""); //data introducida por input */
 
+  console.log("option select---->",option, select);
+
 
 
 
@@ -34,7 +36,7 @@ const App = () => {
 
     try {
       const response = await axios.get('http://localhost:5000/api/astronomy/landings/all')
-      const result = await response.data.slice(0, 50)
+      const result = await response.data/* .slice(0, 50) */
       setLanding(result)
 
     } catch (error) {
@@ -58,6 +60,7 @@ const App = () => {
     try {
       const response = await axios.get(`http://localhost:5000/api/astronomy/landings/${select}/${option}`)
       const result = await response.data
+      console.log('response data:',result);
       setLandingFilter(result)
 
     } catch (error) {

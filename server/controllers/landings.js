@@ -10,8 +10,9 @@ const getByQuery = async (req,res) => {
         // }
         // toNumber()
         const massdata = parseInt(req.query.minimum_mass)
-        const leer = await datoslandings.find({mass: {$gte:massdata}},'name mass -_id')
+        const leer = await datoslandings.find({mass: {$gte:massdata}},'-_id')
         res.status(200).json(leer);
+
     } else if(req.query.from && req.query.to){
         const timefrom = parseInt(req.query.from)
         const timeto = parseInt(req.query.to)
@@ -38,7 +39,7 @@ const getAll = async (req,res) => {
 //Obtiene nombre y masa de aquellos meteoritos cuya masa sea la especificada (route params)
 const getNameandMass = async (req,res) => {
     let massid = req.params.id
-    const leer = await datoslandings.find({mass: {$eq:massid}},'name mass -_id')
+    const leer = await datoslandings.find({mass: {$eq:massid}},'-_id')
     res.status(200).json(leer);
 }
 //Obtiene nombre y clase de aquellos meteoritos cuya clase sea la registrada (route params)

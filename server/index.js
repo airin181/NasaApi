@@ -2,6 +2,8 @@
 const express = require('express'); // Importando módulo NPM (libería)
 require('./utils/dbMongo.js'); // Abrir conexión a la BBDD Mongo
 require('dotenv').config()
+const cors = require('cors')
+
 // Rutas
 const landing = require('./routes/landings');
 const neas = require('./routes/neas');
@@ -20,6 +22,7 @@ app.set('views', './views');
 app.use(express.static('./public'));
 app.use(express.urlencoded())
 app.use(express.json()); // Para habilitar recepción de datos JSON en una request
+app.use(cors())
 
 // app.use(hasApiKey); // Middleware - APIKEY para todas las rutas
 app.get("/",(req,res)=>res.status(200).json({message:"todo correcto"}))
