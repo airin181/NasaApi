@@ -12,19 +12,20 @@ import Stack from '@mui/material/Stack';
 
 function LandingsForm() {
 
+  const { createLanding } = useContext(landingsContext);
   const { register, handleSubmit } = useForm();
-  const { createLanding } = useContext(landingsContext); 
-  
- const [send, setSend] = useState(false); // mensaje de pokemon guardado 
- 
+  const [send, setSend] = useState(false); // mensaje de landing guardado 
 
-   const onSubmit = (data) => {
+
+  const onSubmit = (data) => {
+
     const landingData = {
-
       fall: data.fall,
       geolocation:
-       {latitude: data.reclat,
-        longitude: data.reclong},
+      {
+        latitude: data.reclat,
+        longitude: data.reclong
+      },
       id: data.id,
       mass: data.mass,
       name: data.name,
@@ -35,20 +36,24 @@ function LandingsForm() {
       year: data.year
 
     }
+
     createLanding(landingData);
-    setSend(true) 
-  }  
+    setSend(true);
+    console.log('landingData',landingData);
+  }
 
- return (
+
+
+  return (
     <div>
-<div className='div-gif'>
-      <h1 className='h1-form'>Register your own landing</h1>
-      <iframe src="https://giphy.com/embed/du9tXPzxB6grJuuO0J" width="80" height="30" frameBorder="0" className="giphy-embed" allowFullScreen="" title="astronaut"></iframe>
-      
-</div>
-      <form className='form-div' onSubmit={handleSubmit( onSubmit )}>
+      <div className='div-gif'>
+        <h1 className='h1-form'>Register your own landing</h1>
+        <iframe src="https://giphy.com/embed/du9tXPzxB6grJuuO0J" width="80" height="30" frameBorder="0" className="giphy-embed" allowFullScreen="" title="astronaut"></iframe>
+      </div>
 
-      <TextField
+      <form className='form-div' onSubmit={handleSubmit(onSubmit)}>
+
+        <TextField
           style={{ margin: "5px" }}
           type="text"
           label="Name"
@@ -65,13 +70,12 @@ function LandingsForm() {
           variant="outlined"
           name="fall"
           {...register("fall")}
-          minLength='3'
           required
         />
 
 
-<TextField
-          style={{  margin: "5px" }}
+        <TextField
+          style={{ margin: "5px" }}
           type="text"
           label="Name Type"
           variant="outlined"
@@ -90,7 +94,7 @@ function LandingsForm() {
           required
         />
         <TextField
-          style={{  margin: "5px" }}
+          style={{ margin: "5px" }}
           type="number"
           label="Mass"
           variant="outlined"
@@ -100,7 +104,7 @@ function LandingsForm() {
         />
 
         <TextField
-          style={{  margin: "5px" }}
+          style={{ margin: "5px" }}
           type="text"
           label="Clase"
           variant="outlined"
@@ -110,40 +114,40 @@ function LandingsForm() {
         />
 
         <TextField
-          style={{  margin: "5px" }}
-          type="text"
+          style={{ margin: "5px" }}
+          type="number"
           label="Latitude"
           variant="outlined"
           name="reclat"
           {...register("reclat")}
           required
-        />  
+        />
 
         <TextField
           style={{ margin: "5px" }}
-          type="text"
+          type="number"
           label="Longitude"
           variant="outlined"
           name="reclong"
           {...register("reclong")}
           required
-        />    
+        />
 
-         <TextField
-          style={{  margin: "5px" }}
+        <TextField
+          style={{ margin: "5px" }}
           type="date"
           label=""
           variant="outlined"
           name="year"
           {...register("year")}
           required
-        />     
+        />
 
-         <div className='save-landing'>
-         {send ? <Stack><Alert severity="success">Landing saved!</Alert></Stack>: ""}
+        <div className='save-landing'>
+          {send ? <Stack><Alert severity="success">Landing saved!</Alert></Stack> : ""}
           <Button type="submit" variant="contained">SAVE</Button>
-          
-       </div> 
+        </div>
+
       </form>
     </div>
   )

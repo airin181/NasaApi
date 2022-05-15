@@ -15,11 +15,14 @@ import usePagination from "./../../../../hooks/pagination"
 const LandingsList = () => {
 
 
-  const { landing } = useContext(landingsContext);
+  const { landing, handleRemoveLanding, handleEditLanding } = useContext(landingsContext);
+
   const [visible, setVisible] = useState(false); // scroll to top
   let [page, setPage] = useState(1); // pagination
 
-  //flecha to top visible o no
+
+  //__________________________
+
   const toggleVisible = () => {
     const scrolled = document.documentElement.scrollTop;
     if (scrolled > 300) {
@@ -41,7 +44,7 @@ const LandingsList = () => {
   window.addEventListener('scroll', toggleVisible);
 
 
-
+//___________________________
 
   const PER_PAGE = 12;
 
@@ -52,6 +55,10 @@ const LandingsList = () => {
     setPage(p);
     _DATA.jump(p);
   };
+
+
+
+  //__________________________
 
 
   return (
@@ -70,7 +77,7 @@ const LandingsList = () => {
 
         <Pagination
           count={count}
-          size="large"
+          size="medium"
           page={page}
           variant="outlined"
           shape="rounded"
@@ -85,7 +92,7 @@ const LandingsList = () => {
               style={{ display: visible ? 'inline' : 'none' }} />
           </button>
 
-          {(landing ? _DATA.currentData().map(element => <LandingsCard data={element} key={uuidv4()} className="div-general" />) : "not working this time")}
+          {(landing ? _DATA.currentData().map((element, i) => <LandingsCard data={element} key={uuidv4()} className="div-general" remove={() => handleRemoveLanding(element)} edit={() => handleEditLanding(element)}/>) : "")}
 
         </div>
 
