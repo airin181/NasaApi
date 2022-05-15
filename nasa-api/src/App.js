@@ -7,6 +7,8 @@ import './../src/styles/styles.scss'
 import axios from 'axios';
 import React, { useEffect, useState } from "react";
 import { landingsContext } from './context/landingsContext';
+import { neasContext } from './context/neasContext';
+
 
 
 
@@ -17,12 +19,10 @@ const App = () => {
   const [landing, setLanding] = useState([]); // estado de array de landings
   const [landingFilter, setLandingFilter] = useState("")    //estado para cuando se hacen uso de los filtros
 
+  const [neas, setNeas] = useState([]); // estado de array de neas
 
   const [select, setSelect] = useState(""); //mass or class
   const [option, setOption] = useState(""); //data introducida por input */
-
-  console.log("option select---->",option, select);
-
 
 
 
@@ -60,7 +60,6 @@ const App = () => {
     try {
       const response = await axios.get(`http://localhost:5000/api/astronomy/landings/${select}/${option}`)
       const result = await response.data
-      console.log('response data:',result);
       setLandingFilter(result)
 
     } catch (error) {
@@ -80,14 +79,12 @@ const App = () => {
 
   //petición HTTP de tipo POST para crear landings
   const createLanding = async (landingData) => { //fetch para filtrar por clase
-    console.log('c.log de landingData', landingData);
     //example coordenadas (cork):  51.89797, -8.47061
 
     try {
       const response = await axios.post(`http://localhost:5000/api/astronomy/landings/create`, landingData)
 
       const result = await response.data
-      console.log('c.log en Landings de RESULT', result);
 
     } catch (error) {
       throw error
@@ -109,9 +106,30 @@ const App = () => {
 
 
 
+  //petición HTTP GET SIN filtros. Trae todos.
+  const getNeas = async () => {
+
+    try {
+      const response = await axios.get('http://localhost:5000/api/astronomy/neas/all')
+      const result = await response.data/* .slice(0, 50) */
+      setNeas(result)
+
+    } catch (error) {
+      throw error
+    }
+  }
+  useEffect(() => { getNeas() }, [])
+
+
+
+
+  // _____________________________________
+
+
 
   const data = {
     landing,
+    neas,
     setOption,
     option,
     select,
@@ -128,11 +146,13 @@ const App = () => {
     <div className="App">
       <BrowserRouter>
         <Header />
+        <neasContext.Provider value={data}>
         <landingsContext.Provider value={data}>
           <Main style={{ display: "flex" }} />
         </landingsContext.Provider>
+        </neasContext.Provider>
       </BrowserRouter>
-     {/*  <Footer /> */}
+      {/*  <Footer /> */}
 
     </div>
   );

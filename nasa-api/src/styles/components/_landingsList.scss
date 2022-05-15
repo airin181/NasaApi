@@ -46,3 +46,28 @@
     background-color: transparent;
     border-width: 0;
 }
+
+
+.pagination{
+@include column-center;
+margin-top: 1em;
+margin-bottom: 1em;
+}
+
+.text-landingsList{
+   text-align: center;
+    margin: 2em;
+    max-width: 775px;
+    margin-top: 0;
+    margin-bottom: 1em;
+}
+
+//envuelve todo
+.div-general-column{
+ @include column-center;
+
+ & p {
+     text-align: justify;
+ }
+}
+

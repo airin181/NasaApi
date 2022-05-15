@@ -33,6 +33,12 @@ const getByQuery = async (req,res) => {
     
 }
 
+//Obtiene nombre y masa de todos los landings
+const getAll = async (req,res) => {
+    const leer = await datosNeas.find({},'-_id')
+    res.status(200).json(leer);
+}
+
 //funcion que permite guardar una neas nueva mediante post
 const createNeas = async (req,res) => {
     
@@ -64,10 +70,11 @@ const createNeas = async (req,res) => {
 
 
 
-const landings = {
+const neas = {
      getByQuery,
+     getAll,
      createNeas,
      editNeas,
      deleteNeas
 }
-module.exports = landings;
+module.exports = neas;

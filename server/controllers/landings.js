@@ -31,7 +31,7 @@ const getByQuery = async (req,res) => {
         console.log("error al introducir parámetros")
     }
 }
-//Obtiene nombre y masa de aquellos meteoritos cuya masa sea la especificada (route params)
+//Obtiene nombre y masa de todos los landings
 const getAll = async (req,res) => {
     const leer = await datoslandings.find({},'-_id')
     res.status(200).json(leer);

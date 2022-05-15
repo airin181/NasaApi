@@ -27,13 +27,11 @@ const imageAsteroid = arrayImages[Math.floor(Math.random() * arrayImages.length)
       <p>ID NUM: {data.id}</p>
       <p><b>{data.name}</b> </p>
       <p> {data.reclat},  {data.reclong}</p>
+      <p><b>Class:</b> {data.recclass}</p>
       <p><b>Mass:</b> {data.mass}kg</p>
 
     </article>
   </section>
-
-
-
 
 
 
