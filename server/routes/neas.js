@@ -9,6 +9,7 @@ const hasApiKey = require('../middlewares/hasApiKey');
 //router.get('/astronomy/landings',landings.getData);
 
 router.get('/',neas.getByQuery);
+router.get('/all',neas.getAll);
 
 //router.get('/landings',landings.getNameandMass);
 
