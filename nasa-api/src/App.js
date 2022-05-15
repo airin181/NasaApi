@@ -26,7 +26,20 @@ const App = () => {
 
 
 
-  // _____________________________________
+
+
+
+/*_____________________________________ 
+  
+  
+  
+  
+ >>>>>>>>>>      LANDINGS      <<<<<<<<<<<<<
+
+
+
+______________________________________*/
+
 
 
 
@@ -48,7 +61,7 @@ const App = () => {
 
 
 
-  // _____________________________________
+  // __________________
 
 
 
@@ -72,35 +85,93 @@ const App = () => {
 
 
 
-  // _____________________________________
+  // _______________________
 
 
 
 
-  //petición HTTP de tipo POST para crear landings
-  const createLanding = async (landingData) => { //fetch para filtrar por clase
-    //example coordenadas (cork):  51.89797, -8.47061
+
+  const createLanding = async (landingData) => {
+
 
     try {
+      // eslint-disable-next-line
       const response = await axios.post(`http://localhost:5000/api/astronomy/landings/create`, landingData)
-
       const result = await response.data
+
 
     } catch (error) {
       throw error
     }
   }
 
-
+  // eslint-disable-next-line 
   useEffect(() => { createLanding() }, []);
-  // empty dependency array means this effect will only run once (like componentDidMount in classes)
 
 
 
 
 
 
-  // _____________________________________
+
+  // _______________________
+
+
+
+
+
+  // REMOVE card
+
+  const handleRemoveLanding = async (landingToDelete) =>  {
+    console.log('DELETE LANDING of -->',landingToDelete);
+
+    //se elimina del front
+    const landingAfterRemove = landing.filter((item) => landingToDelete !== item);
+    setLanding(landingAfterRemove)
+
+    //se eliminan de la bbdd
+    await axios.delete('http://localhost:5000/api/astronomy/landings/delete',{ data: landingToDelete})
+    
+  }
+
+
+
+    // _______________________
+
+
+
+
+
+  // EDIT card
+
+  const handleEditLanding = async (landingToEdit) =>  {
+    console.log('DELETE LANDING of -->',landingToEdit);
+
+
+    
+    
+    await axios.put('http://localhost:5000/api/astronomy/landings/edit:id',{ data: landingToEdit})
+    const landingAfterEdit = 
+    setLanding(landingAfterEdit)
+    
+  }
+
+
+
+
+
+/*_____________________________________ 
+  
+  
+  
+  
+**********     NEAS      ***********
+
+
+
+______________________________________*/
+
+
 
 
 
@@ -122,8 +193,52 @@ const App = () => {
 
 
 
-
   // _____________________________________
+
+
+
+
+
+  //petición HTTP de tipo POST para crear neas
+  const createNea = async (neaData) => {
+    console.log('neaData en APP--->', neaData);
+
+    try {
+      const response = await axios.post(`http://localhost:5000/api/astronomy/neas/create`, neaData)
+      const result = await response.data
+      console.log('nea created (app)-->', result);
+      setNeas(...neas, result)
+
+    } catch (error) {
+      throw error
+    }
+  }
+
+  // eslint-disable-next-line 
+  useEffect(() => { createNea() }, []);
+
+
+
+ // _____________________________________
+
+
+
+
+ // REMOVE card
+
+ const handleRemoveNea = async (neaToDelete) =>  {
+  console.log('DELETE NEA of -->',neaToDelete);
+
+  //se elimina del front
+  const neasAfterRemove = neas.filter((item) => neaToDelete !== item);
+  setNeas(neasAfterRemove)
+
+  //se eliminan de la bbdd
+  await axios.delete('http://localhost:5000/api/astronomy/neas/delete',{ data: neaToDelete})
+  
+}
+
+
 
 
 
@@ -135,7 +250,11 @@ const App = () => {
     select,
     setSelect,
     landingFilter,
-    createLanding
+    createLanding,
+    createNea,
+    handleRemoveLanding,
+    handleRemoveNea,
+    handleEditLanding
   }
 
 
@@ -147,9 +266,9 @@ const App = () => {
       <BrowserRouter>
         <Header />
         <neasContext.Provider value={data}>
-        <landingsContext.Provider value={data}>
-          <Main style={{ display: "flex" }} />
-        </landingsContext.Provider>
+          <landingsContext.Provider value={data}>
+            <Main style={{ display: "flex" }} />
+          </landingsContext.Provider>
         </neasContext.Provider>
       </BrowserRouter>
       {/*  <Footer /> */}

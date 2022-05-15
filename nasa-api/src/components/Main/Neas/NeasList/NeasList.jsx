@@ -11,11 +11,10 @@ import usePagination from "./../../../../hooks/pagination"
 const NeasList = () => {
 
   
-  const { neas } = useContext(neasContext); //info de neas 
+  const { neas, handleRemoveNea } = useContext(neasContext); //info de neas 
   const [visible, setVisible] = useState(false); // scroll to top
   let [page, setPage] = useState(1); // pagination
   
-  console.log(neas);
 
 
 
@@ -77,7 +76,7 @@ const NeasList = () => {
 
 <Pagination
   count={count}
-  size="large"
+  size="medium"
   page={page}
   variant="outlined"
   shape="rounded"
@@ -92,7 +91,7 @@ const NeasList = () => {
       style={{ display: visible ? 'inline' : 'none' }} />
   </button>
 
-  {(neas ? _DATA.currentData().map(element => <NeasCard data={element} key={uuidv4()} className="div-general" />) : "not working this time")}
+  {(neas ? _DATA.currentData().map(element => <NeasCard data={element} key={uuidv4()} className="div-general" remove={() => handleRemoveNea(element)}/>) : "")}
   
 </div>
 

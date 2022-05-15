@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const objectSchema = {
     name: { 
         type: String, 
-        required: true,
    
     },
     id: { 

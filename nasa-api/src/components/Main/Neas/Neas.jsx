@@ -17,8 +17,8 @@ const Neas = () => {
       <h3 style={{marginTop:0}}>(Near-Earth asteroid)</h3>
       <p id="description">Near-Earth objects (NEOs) are asteroids or comets of sizes ranging from metres to tens of kilometres that orbit the Sun and whose orbits come close to that of Earth's. Of the more than 600 000 known asteroids in our Solar System, more than 20 000 are NEOs.</p>
 
-     {/*  <Button type="submit" variant="contained" component={Link} to="/createNeas" style={{ margin: "1em" }}>CHECK ALL NEAs HERE</Button> */}
-    <NeasList/> 
+       <Button type="submit" variant="contained" component={Link} to="/neas/create" style={{ margin: "1em" }}>CREATE YOUR OWN NEA</Button>
+   <NeasList/> 
   </div>;
   </>
 };

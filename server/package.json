@@ -1,15 +1,15 @@
 {
   "name": "demo_backend",
   "version": "1.0.0",
-  "description": "Mi primera demo con NodeJS",
+  "description": "NASA APP",
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "nodemon index.js",
+    "start": "node index.js",
     "otraTarea": "echo \"Otra tarea\" && exit 1",
     "generate-docs": "jsdoc -c ./jsdoc.json"
   },
-  "author": "Alejandro Reyes",
+  "author": "Irene GMerino",
   "license": "MIT",
   "dependencies": {
     "cors": "^2.8.5",
