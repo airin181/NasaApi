@@ -6,7 +6,7 @@
 <br />
 <div align="center">
   <a href="https://thebridge-nasa.netlify.app">
-    <img src="public/logo.png" alt="Logo" width="80" height="80">
+    <img src="nasa-api/public/logo.png" alt="Logo" width="80" height="80">
   </a>
 
 
