@@ -8,6 +8,7 @@
   <a href="https://thebridge-nasa.netlify.app">
     <img src="nasa-api/public/logo.png" alt="Logo" width="80" height="auto">
   </a>
+  <a href="https://thebridge-nasa.netlify.app"> Deployed site </a>
 
 
 <!-- TABLE OF CONTENTS -->
