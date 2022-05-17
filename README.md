@@ -47,32 +47,31 @@ These are the frameworks/libraries used in this project:<br />
 <!-- GETTING STARTED -->
 ## SET UP
 
-To get a local copy up and running follow these steps.
+In the project directory, you can run:
 
-### Prerequisites
+npm start
+Runs the app in the development mode.
+Open http://localhost:3000 to view it in your browser.
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+The page will reload when you make changes.
+You may also see any lint errors in the console.
+  
 
 ### Installation
+  
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
-
-1. Get a free API Key at [https://example.com](https://example.com)
+1. Get a free API Key at [https://api.nasa.gov/](https://api.nasa.gov/)
 2. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/airin181/NasaApi.git
    ```
 3. Install NPM packages
    ```sh
    npm install
    ```
-4. Enter your API in `config.js`
+4. Create a js file ".env" in client directory (nasa-api)
    ```js
-   const API_KEY = 'ENTER YOUR API';
+   REACT_APP_TOKEN = 'ENTER YOUR API';
    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
