@@ -30,7 +30,7 @@ It's been designed by mobile-first protocol.
 These are the frameworks/libraries used in this project:
 
 * [React.js](https://reactjs.org/)
-* [Mongoose.js](https://mongoosejs.org/) [& Mongo Atlas]
+* [Mongoose.js](https://mongoosejs.org/)
 * [Express.js](https://expressjs.org/)
 * [Node.js](https://nodejs.org/)
 * [Cors.js](https://corsjs.org/)
@@ -46,10 +46,9 @@ These are the frameworks/libraries used in this project:
 
 
 <!-- GETTING STARTED -->
-## Getting Started
+## SET UP
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+To get a local copy up and running follow these steps.
 
 ### Prerequisites
 
