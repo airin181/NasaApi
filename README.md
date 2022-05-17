@@ -1,6 +1,7 @@
 <div id="top"></div>
 
   <h1 align="center">NASA APP</h1>
+    <a href="https://thebridge-nasa.netlify.app"> Check website </a>
   
 <!-- PROJECT LOGO -->
 <br />
@@ -8,7 +9,7 @@
   <a href="https://thebridge-nasa.netlify.app">
     <img src="nasa-api/public/logo.png" alt="Logo" width="80" height="auto">
   </a>
-  <a href="https://thebridge-nasa.netlify.app"> Deployed site </a>
+
 
 
 <!-- TABLE OF CONTENTS -->
