@@ -1,7 +1,7 @@
 <div id="top"></div>
 
   <h1 align="center">NASA APP</h1>
-  <a href="https://thebridge-nasa.netlify.app" align="center"> Check website </a>
+  <a align="center" href="https://thebridge-nasa.netlify.app" > Check website </a>
   
 <!-- PROJECT LOGO -->
 <br />
@@ -13,8 +13,8 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-
-[Screenshot]!(https://user-images.githubusercontent.com/98608110/168569159-0d9d69a0-25cb-4fae-8a98-0e1b1eaf7f22.png)
+  
+  ![Alt text](https://user-images.githubusercontent.com/98608110/168569159-0d9d69a0-25cb-4fae-8a98-0e1b1eaf7f22.png "Screenshot")
 
 
 There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
