@@ -1,7 +1,7 @@
 <div id="top"></div>
 
   <h1 align="center">NASA APP</h1>
-    <a href="https://thebridge-nasa.netlify.app"> Check website </a>
+  <a href="https://thebridge-nasa.netlify.app" align="center"> Check website </a>
   
 <!-- PROJECT LOGO -->
 <br />
