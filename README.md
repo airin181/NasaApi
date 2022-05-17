@@ -28,13 +28,13 @@ It's been designed by mobile-first protocol.
 ### Tools
 
 These are the frameworks/libraries used in this project:<br />
-React
-Mongoose
-Express
-Node
-Cors
-Leaflet
-Dotenv
+React<br />
+Mongoose<br />
+Express<br />
+Node<br />
+Cors<br />
+Leaflet<br />
+Dotenv<br />
 
 
   ...
