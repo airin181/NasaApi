@@ -27,15 +27,14 @@ It's been designed by mobile-first protocol.
 
 ### Tools
 
-These are the frameworks/libraries used in this project:
-
-* [React.js](https://reactjs.org/)
-* [Mongoose.js](https://mongoosejs.org/)
-* [Express.js](https://expressjs.org/)
-* [Node.js](https://nodejs.org/)
-* [Cors.js](https://corsjs.org/)
-* [Leaflet.js](https://leafletjs.org/)
-* [Dotenv.js](https://dotenvjs.org/)
+These are the frameworks/libraries used in this project:<br />
+[React.js](https://reactjs.org/)<br />
+[Mongoose.js](https://mongoosejs.org/)<br />
+[Express.js](https://expressjs.org/)<br />
+[Node.js](https://nodejs.org/)<br />
+[Cors.js](https://corsjs.org/)<br />
+[Leaflet.js](https://leafletjs.org/)<br />
+[Dotenv.js](https://dotenvjs.org/)<br />
   
   
   ...
