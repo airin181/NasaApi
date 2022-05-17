@@ -60,6 +60,7 @@ const App = () => {
     }
   }
   useEffect(() => { getLandings() }, [])
+
   useEffect(() => { getLandings() }, [requestAfterEdit])
 
 
@@ -312,10 +313,10 @@ const App = () => {
     console.log('neaUpdated en app-->', neaUpdated.designation);
 
     try {
-      const response = await axios.put('http://localhost:5000/api/astronomy/neas/edit/:designation', neaUpdated)
-      const neaAfterEdit = response.data
+      const res = await axios.put('http://localhost:5000/api/astronomy/neas/edit/:designation', neaUpdated)
+      const neaAfterEdit = res.data
 
-      setRequestNeaAfterEdit(!neaAfterEdit)
+      setRequestNeaAfterEdit(!requestNeaAfterEdit)
       setNeas(neas)
 
     } catch (error) {
@@ -329,11 +330,11 @@ const App = () => {
 
 
 
-
   const data = {
     setLanding,
     landing,
     neas,
+    setNeas,
     setOption,
     option,
     select,

@@ -1,24 +1,26 @@
-import { React, useContext, useState } from 'react'
+import { React, useContext, useState, useEffect } from 'react'
 import { neasContext } from '../../../../context/neasContext';
 import { v4 as uuidv4 } from 'uuid';
 import NeasCard from "./NeasCard/NeasCard";
-/* import { Link } from "react-router-dom";
-import Button from '@mui/material/Button'; */
 import Pagination from '@mui/material/Pagination';
 import { BsFillArrowUpSquareFill } from 'react-icons/bs';
 import usePagination from "./../../../../hooks/pagination"
 
+
+
+
 const NeasList = () => {
 
-  
-  const { neas, handleRemoveNea } = useContext(neasContext); //info de neas 
+  //context:
+  const { neas, handleRemoveNea /* setNeas */ } = useContext(neasContext); //info de neas 
+
+  //estados:
   const [visible, setVisible] = useState(false); // scroll to top
-  let [page, setPage] = useState(1); // pagination
-  
+  const [page, setPage] = useState(1); // pagination
 
 
 
-  //___________________ scroll to top - arrow
+  //___________________ SCROLL TO TOP
 
   const toggleVisible = () => {
     const scrolled = document.documentElement.scrollTop;
@@ -44,7 +46,7 @@ const NeasList = () => {
 
 
 
-  //___________________ pagination
+  //___________________ PAGINATION
 
 
   const PER_PAGE = 12;
@@ -62,45 +64,75 @@ const NeasList = () => {
 
 
 
+  //__________________________ ORDENAR LISTA ALFABÉTICAMENTE
 
+
+
+  //continuar con esto más adelante. No funciona. Si se comenta setNeas no se rompe.
+
+ /*  function handleSortDesignation() {
+    const sortedData = [...neas].sort((a,b)=>{
+      return a.designation > b.designation ? 1: -1
+    })
+    setNeas(sortedData)
+  }
+
+ */
+
+
+  // ================== 
+
+if(neas){
   return <>
 
 
+    <div className='div-general-column'>
 
-<div className='div-general-column'>
+      <section className='pag-sort'>
 
-{/* <section className='text-landingsList'>
-  <h1>List of all Neas on Earth</h1>
-  <p>This list of potential mission targets, provided by NHATS, should not be interpreted as a complete list of viable NEAs for an actual human exploration mission. As the NEA orbits are updated, <b>the viable mission targets and their mission parameters will change</b>. To select an actual target and mission scenario, additional constraints must be applied <u>including astronaut health and safety considerations, human space flight architecture elements, their performances and readiness, the physical nature of the target NEA and mission schedule constraints</u>.</p>
-</section> */}
+        <article>
+          <Pagination
+            count={count}
+            size="medium"
+            page={page}
+            variant="outlined"
+            shape="rounded"
+            onChange={handleChange}
+            className="pagination"
+          />
+        </article>
 
-<Pagination
-  count={count}
-  size="medium"
-  page={page}
-  variant="outlined"
-  shape="rounded"
-  onChange={handleChange}
-  className="pagination"
-/>
+       {/*  <article>
+          <Button variant="outlined" className='sort-button' onClick={handleSortDesignation}>Sort A-Z</Button> 
+                   <input type="search"  className="search-input" placeholder="Filter by designation" />
+          </article> */}
 
-<div className='list-general'>
+      </section>
 
-  <button className='scroll-button'>
-    <BsFillArrowUpSquareFill onClick={scrollToTop}
-      style={{ display: visible ? 'inline' : 'none' }} />
-  </button>
 
-  {(neas ? _DATA.currentData().map(element => <NeasCard data={element} key={uuidv4()} className="div-general" remove={() => handleRemoveNea(element)}/>) : "")}
-  
-</div>
 
-</div>
+
+
+
+
+      <div className='list-general'>
+
+        <button className='scroll-button'>
+          <BsFillArrowUpSquareFill onClick={scrollToTop}
+            style={{ display: visible ? 'inline' : 'none' }} />
+        </button>
+
+        {(neas ? _DATA.currentData().map(element => <NeasCard data={element} key={uuidv4()} className="div-general" remove={() => handleRemoveNea(element)} />) : "")}
+
+      </div>
+
+    </div>
 
 
 
 
   </>;
+}
 };
 
 export default NeasList;

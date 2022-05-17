@@ -20,11 +20,6 @@ import nea4 from "./../../../../../assets/neas/nea4.png";
 
 const NeasCard = ({ data, remove }) => {
 
-
-  const arrayImages = [nea1, nea2, nea3, nea4] // --> array de imágenes para hacer random
-
-  const imageNea = arrayImages[Math.floor(Math.random() * arrayImages.length)]; //me saca num random del índice --> image random
-
   const date = data.discovery_date.slice(0, -13); // --> me quita todos los ceros de las horas de la fecha
 
   const [open, setOpen] = useState(false); // popup
@@ -35,6 +30,22 @@ const NeasCard = ({ data, remove }) => {
 
 
 
+
+
+  // __________________asignamos una imagen por cada tipo (aprox)
+
+const checkClassForImage = () => {
+
+  if(data.orbit_class.startsWith('At',0)){
+return nea1;
+  } else if (data.orbit_class.startsWith('Am',0)){
+    return nea2;
+  } else if (data.orbit_class.startsWith('Ap',0)){
+    return nea3;
+  } else {
+    return nea4;
+}
+}
 
 
 
@@ -84,7 +95,7 @@ const NeasCard = ({ data, remove }) => {
   return <section className='card-container'>
 
   <figure className='figure-asteroid'>
-    <img src={imageNea} alt="asteroid" width={"100px"} />
+    <img src={checkClassForImage()} alt="asteroid" width={"100px"} />
   </figure> 
 
     <article className='card-content'>

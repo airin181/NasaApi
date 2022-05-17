@@ -14,20 +14,18 @@ import usePagination from "./../../../../hooks/pagination"
 const LandingsList = () => {
 
 
-  const { setLanding, landing, handleRemoveLanding, /* handleEditLanding */ } = useContext(landingsContext);
+  const { setLanding, landing, handleRemoveLanding } = useContext(landingsContext);
 
-/*   const [visible, setVisible] = useState(false); // scroll to top */
-
+  const [visible, setVisible] = useState(false); // scroll to top 
   let [page, setPage] = useState(1); // pagination
 
-  const [landingFiltered, setLandingFiltered] = useState(landing) // 
-
+  const [landingFiltered, setLandingFiltered] = useState(landing) // filtrado por nombre
   const [searchTerm, setsearchTerm] = useState('');  // the value of the search field 
 
 
 
 
-// Coge el array con todos los landing y hace un filtrado....ACABAR de comentar
+  // Coge el array con todos los landing y hace un filtrado. Comprueba si cada uno de esos elementos cumple con una condición -> si el estado searchTerm (input search de filtrado por nombre) está vacío me devuelves element (todo) y si se cumple con la otra condición me devuelves lo que coincida.
 
   useEffect(() => {
 
@@ -41,7 +39,7 @@ const LandingsList = () => {
     })
     setLandingFiltered(toFilter)
   }
-    ,[searchTerm, landing])
+    , [searchTerm, landing])
 
 
 
@@ -54,8 +52,11 @@ const LandingsList = () => {
 
 
   const handleSort = () => {
+    console.log(landing);
+   
     const sortedData = [...landing].sort((b, a) => {
-      return a.first > b.first ? 1 : -1
+      
+      return a > b? 1 : -1
     })
     setLanding(sortedData)
   }
@@ -65,7 +66,7 @@ const LandingsList = () => {
 
   //__________________________ FLECHA CON SCROLL PARA IR ARRIBA DE LA PAG
 
-/*   const toggleVisible = () => {
+  const toggleVisible = () => {
     const scrolled = document.documentElement.scrollTop;
     if (scrolled > 300) {
       setVisible(true)
@@ -83,7 +84,7 @@ const LandingsList = () => {
     });
   };
 
-  window.addEventListener('scroll', toggleVisible); */
+  window.addEventListener('scroll', toggleVisible);
 
 
 
@@ -153,17 +154,16 @@ const LandingsList = () => {
 
         <div className='list-general'>
 
-    {/*       <button className='scroll-button'>
+          <button className='scroll-button'>
             <BsFillArrowUpSquareFill onClick={scrollToTop}
               style={{ display: visible ? 'inline' : 'none' }} />
-          </button> */}
-
+          </button>
 
           {(landing ?
-           
+
             _DATA.currentData().map((element) => {
               return (
-                <LandingsCard data={element} key={uuidv4()} first={element.first} last={element.last} className="div-general" remove={() => handleRemoveLanding(element)} /* edit={() => handleEditLanding(element)}  *//>)
+                <LandingsCard data={element} key={uuidv4()} first={element.first} last={element.last} className="div-general" remove={() => handleRemoveLanding(element)} /* edit={() => handleEditLanding(element)}  */ />)
             })
 
             : "")}
@@ -175,14 +175,3 @@ const LandingsList = () => {
 };
 
 export default LandingsList;
-
-
-/* const toggleVisible = () => {
-  const scrolled = document.documentElement.scrollTop;
-  if (scrolled > 300) {
-    setVisible(true)
-  }
-  else if (scrolled <= 300) {
-    setVisible(false)
-  }
-}; */

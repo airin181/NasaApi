@@ -9,10 +9,10 @@ import asteroid1 from "./../../../../../assets/meteors/meteor1.png";
 import asteroid2 from "./../../../../../assets/meteors/meteor2.png";
 import asteroid3 from "./../../../../../assets/meteors/meteor3.png";
 import asteroid4 from "./../../../../../assets/meteors/meteor4.png";
-import asteroid6 from "./../../../../../assets/meteors/meteor6.png";
-import asteroid7 from "./../../../../../assets/meteors/meteor7.png";
-import asteroid8 from "./../../../../../assets/meteors/meteor8.png";
-import asteroid9 from "./../../../../../assets/meteors/meteor9.png";
+import asteroid5 from "./../../../../../assets/meteors/meteor6.png";
+import asteroid6 from "./../../../../../assets/meteors/meteor7.png";
+import asteroid7 from "./../../../../../assets/meteors/meteor8.png";
+import asteroid8 from "./../../../../../assets/meteors/meteor9.png";
 
 
 
@@ -33,9 +33,6 @@ const LandingsCard = ({ data, remove }) => {
   };
 
 
-
-
-  
 
   const updateLanding = (dataNew) => {
     console.log(dataNew);
@@ -65,20 +62,33 @@ const LandingsCard = ({ data, remove }) => {
 
 
 
+// asignamos una imagen por cada tipo (aprox)
+const checkClassForImage = () => {
 
+  if(data.recclass.startsWith('L5',0)){
+return asteroid1;
+  } else if (data.recclass.startsWith('H5',0)){
+    return asteroid2;
+  } else if (data.recclass.startsWith('H6',0)){
+    return asteroid3;
+  } else if (data.recclass.startsWith('L6',0)){
+    return asteroid4;
+  } else if (data.recclass.startsWith('H',0)){
+    return asteroid5;
+  } else if (data.recclass.startsWith('CM2',0)){
+    return asteroid6;
+  } else if (data.recclass.startsWith('Iron',0)){
+    return asteroid7;
+  } else {
+    return asteroid8;
+  }
 
-
-
-  //random image
-  const arrayImages = [asteroid1, asteroid2, asteroid3, asteroid4, asteroid6, asteroid7, asteroid8, asteroid9]
-  const imageAsteroid = arrayImages[Math.floor(Math.random() * arrayImages.length)]; //me saca num random del índice
-
-
+}
 
 
   return <><section className='card-container'>
     <figure className='figure-asteroid'>
-      <img src={imageAsteroid} alt="asteroid" width={"100px"} />
+      <img src={checkClassForImage()} alt="asteroid" width={"100px"} />
     </figure>
     <article className='card-content'>
       <p>ID NUM: {data.id}</p>
