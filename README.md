@@ -36,7 +36,7 @@ These are the frameworks/libraries used in this project:<br />
 [Leaflet.js](https://leafletjs.org/)<br />
 [Dotenv.js](https://dotenvjs.org/)<br />
   
-  
+Javascript Typescript HTML5 React JQuery CSS3 Bootstrap NodeJS Express MongoDB
   ...
 
 
