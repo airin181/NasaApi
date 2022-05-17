@@ -17,7 +17,7 @@ router.get('/all',neas.getAll);
 router.post('/create',neas.createNeas);
 
 //PUT --> Edit Neas
-router.put('/edit',neas.editNeas);
+router.put('/edit/:designation',neas.editNeas);
 
 //DELETE --> Delete Neas
 router.delete('/delete',neas.deleteNeas);

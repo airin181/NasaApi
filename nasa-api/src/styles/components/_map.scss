@@ -18,6 +18,12 @@
     background-color: #1876d1;
     padding: 4px;
     width: 66px;
+    transition: transform .2s;
+}
+
+.filter-submit:hover{
+    background-color: #8bbced;
+    cursor: pointer;
 }
 
 .filter-input{
@@ -38,6 +44,9 @@
     border-radius: 5px;
     color: #1876d0;
     padding: 3px;
-    
     max-width: 65px;
+}
+
+.filter-by:hover{
+    cursor: pointer;
 }
