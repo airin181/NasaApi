@@ -15,7 +15,7 @@ router.get('/class/:id',landings.getNameandClass);
 // POST --> Create Landing
 router.post('/create',landings.createLanding);
 // PUT --> Edit Landing
-router.put('/edit',landings.editLanding);
+router.put('/edit/:id',landings.editLanding);
 // DELETE --> Delete Landing
 router.delete('/delete',landings.deleteLanding);
 module.exports = router;
