@@ -1,4 +1,4 @@
-import { React, useContext, useState } from 'react'
+import { React, useContext, useState, useEffect } from 'react'
 import { landingsContext } from '../../../../context/landingsContext';
 import { v4 as uuidv4 } from 'uuid';
 import LandingsCard from "./LandingsCard/LandingsCard";
@@ -11,19 +11,61 @@ import usePagination from "./../../../../hooks/pagination"
 
 
 
-
 const LandingsList = () => {
 
 
-  const { landing, handleRemoveLanding, handleEditLanding } = useContext(landingsContext);
+  const { setLanding, landing, handleRemoveLanding, /* handleEditLanding */ } = useContext(landingsContext);
 
-  const [visible, setVisible] = useState(false); // scroll to top
+/*   const [visible, setVisible] = useState(false); // scroll to top */
+
   let [page, setPage] = useState(1); // pagination
 
+  const [landingFiltered, setLandingFiltered] = useState(landing) // 
 
-  //__________________________
+  const [searchTerm, setsearchTerm] = useState('');  // the value of the search field 
 
-  const toggleVisible = () => {
+
+
+
+// Coge el array con todos los landing y hace un filtrado....ACABAR de comentar
+
+  useEffect(() => {
+
+
+    let toFilter = landing.filter((element) => {
+      if (searchTerm === "") {
+        return element
+      } else if (element.name.toLowerCase().includes(searchTerm.toLowerCase())) {
+        return element
+      }
+    })
+    setLandingFiltered(toFilter)
+  }
+    ,[searchTerm, landing])
+
+
+
+
+
+
+  //__________________________ ORDENAR LISTA ALFABÉTICAMENTE
+
+
+
+
+  const handleSort = () => {
+    const sortedData = [...landing].sort((b, a) => {
+      return a.first > b.first ? 1 : -1
+    })
+    setLanding(sortedData)
+  }
+
+
+
+
+  //__________________________ FLECHA CON SCROLL PARA IR ARRIBA DE LA PAG
+
+/*   const toggleVisible = () => {
     const scrolled = document.documentElement.scrollTop;
     if (scrolled > 300) {
       setVisible(true)
@@ -41,15 +83,21 @@ const LandingsList = () => {
     });
   };
 
-  window.addEventListener('scroll', toggleVisible);
+  window.addEventListener('scroll', toggleVisible); */
 
 
-//___________________________
+
+
+
+  //___________________________  PAGINATION
+
+
+
 
   const PER_PAGE = 12;
 
-  const count = Math.ceil(landing.length / PER_PAGE);
-  const _DATA = usePagination(landing, PER_PAGE);
+  const count = Math.ceil(landingFiltered.length / PER_PAGE); //redondea el num hacia arriba --> arrays entre 12
+  const _DATA = usePagination(landingFiltered, PER_PAGE);
 
   const handleChange = (e, p) => {
     setPage(p);
@@ -58,7 +106,13 @@ const LandingsList = () => {
 
 
 
-  //__________________________
+
+
+
+
+
+  // **********************************************************
+
 
 
   return (
@@ -75,24 +129,44 @@ const LandingsList = () => {
           <p>The following is a <b>collection</b> of lists of asteroids of the Solar System that are exceptional in some way, such as their size or orbit. For the purposes of this article, "asteroid" refers to minor planets out to the orbit of Neptune, and includes the dwarf planet 1 Ceres, the Jupiter trojans and the centaurs, but not trans-Neptunian objects (objects in the Kuiper belt, scattered disc or inner Oort cloud). For a complete list of minor planets in numerical order, see List of minor planets.</p>
         </section>
 
-        <Pagination
-          count={count}
-          size="medium"
-          page={page}
-          variant="outlined"
-          shape="rounded"
-          onChange={handleChange}
-          className="pagination"
-        />
+        <section className='pag-sort'>
+          <article>
+
+            <Pagination
+              count={count}
+              size="medium"
+              page={page}
+              variant="outlined"
+              shape="rounded"
+              onChange={handleChange}
+              className="pagination"
+            />
+          </article>
+          <article>
+
+            <Button variant="outlined" className='sort-button' onClick={handleSort}>Sort A-Z</Button>
+            <input type="search" onChange={event => { setsearchTerm(event.target.value) }} className="search-input" placeholder="Filter by name" />
+          </article>
+
+        </section>
+
 
         <div className='list-general'>
 
-          <button className='scroll-button'>
+    {/*       <button className='scroll-button'>
             <BsFillArrowUpSquareFill onClick={scrollToTop}
               style={{ display: visible ? 'inline' : 'none' }} />
-          </button>
+          </button> */}
 
-          {(landing ? _DATA.currentData().map((element, i) => <LandingsCard data={element} key={uuidv4()} className="div-general" remove={() => handleRemoveLanding(element)} edit={() => handleEditLanding(element)}/>) : "")}
+
+          {(landing ?
+           
+            _DATA.currentData().map((element) => {
+              return (
+                <LandingsCard data={element} key={uuidv4()} first={element.first} last={element.last} className="div-general" remove={() => handleRemoveLanding(element)} /* edit={() => handleEditLanding(element)}  *//>)
+            })
+
+            : "")}
 
         </div>
 
@@ -101,3 +175,14 @@ const LandingsList = () => {
 };
 
 export default LandingsList;
+
+
+/* const toggleVisible = () => {
+  const scrolled = document.documentElement.scrollTop;
+  if (scrolled > 300) {
+    setVisible(true)
+  }
+  else if (scrolled <= 300) {
+    setVisible(false)
+  }
+}; */

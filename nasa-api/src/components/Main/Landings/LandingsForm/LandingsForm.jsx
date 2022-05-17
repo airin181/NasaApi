@@ -1,6 +1,7 @@
 import { React, useContext, useState } from 'react'
 import { landingsContext } from '../../../../context/landingsContext';
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 
 
 import Button from '@mui/material/Button';
@@ -39,7 +40,7 @@ function LandingsForm() {
 
     createLanding(landingData);
     setSend(true);
-    console.log('landingData',landingData);
+    console.log('landingData', landingData);
   }
 
 
@@ -145,9 +146,13 @@ function LandingsForm() {
 
         <div className='save-landing'>
           {send ? <Stack><Alert severity="success">Landing saved!</Alert></Stack> : ""}
-          <Button type="submit" variant="contained">SAVE</Button>
-        </div>
 
+          <div className='save-buttons'>
+            <Button type="submit" variant="contained">SAVE</Button>
+            {send ? <Button component={Link} to="/landings/list" variant="outlined" color="primary" type="submit" >CHECK THE LIST</Button> : ""}
+          </div>
+
+        </div>
       </form>
     </div>
   )

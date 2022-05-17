@@ -1,5 +1,6 @@
-import { React, useState } from 'react'
-import axios from 'axios';
+import { React, useState, useContext } from 'react'
+import { landingsContext } from '../../../../../context/landingsContext';
+
 import { useForm } from 'react-hook-form'
 import { Button, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, TextField } from '@mui/material';
 
@@ -15,7 +16,9 @@ import asteroid9 from "./../../../../../assets/meteors/meteor9.png";
 
 
 
-const LandingsCard = ({ data, remove, edit }) => {
+const LandingsCard = ({ data, remove }) => {
+
+  const {handleEditLanding} = useContext(landingsContext);
 
 
   const [open, setOpen] = useState(false);
@@ -30,12 +33,16 @@ const LandingsCard = ({ data, remove, edit }) => {
   };
 
 
+
+
+  
+
   const updateLanding = (dataNew) => {
     console.log(dataNew);
     try {
       const landingUpdated = {
-        name: dataNew.name,
-        id: dataNew.id,
+        name: data.name,
+        id: data.id,
         mass: dataNew.mass,
         recclass: dataNew.recclass,
         year: dataNew.year,
@@ -46,15 +53,17 @@ const LandingsCard = ({ data, remove, edit }) => {
           longitude: dataNew.reclong
         }
       }
-      console.log('data.id--->',data.id);
+      console.log('landingUpdated--->',landingUpdated);
       setOpen(false);
-      edit(landingUpdated)
-
+      handleEditLanding(landingUpdated)
+  
     } catch (error) {
       console.log(error);
     }
-
+  
   }
+
+
 
 
 
@@ -91,13 +100,13 @@ const LandingsCard = ({ data, remove, edit }) => {
           </DialogContentText>
           <TextField autoFocus margin="dense" id="name" label={"Name: " + data.name} type="text" fullWidth variant="standard" disabled />
           <TextField autoFocus margin="dense" id="id" label={"ID Number: " + data.id} type="text" fullWidth variant="standard" disabled />
-          <TextField autoFocus margin="dense" {...register("nametype")} id="nametype" label="Name Type" type="text" fullWidth variant="standard" />
-          <TextField autoFocus margin="dense" {...register("recclass")} id="recclass" label="Class" type="text" fullWidth variant="standard" />
-          <TextField autoFocus margin="dense" {...register("mass")} id="mass" label="Mass" type="text" fullWidth variant="standard" />
-          <TextField autoFocus margin="dense" {...register("fall")} id="fall" label="Fall" type="text" fullWidth variant="standard" />
-          <TextField autoFocus margin="dense" {...register("year")} id="year" label="Year" type="text" fullWidth variant="standard" />
-          <TextField autoFocus margin="dense" {...register("reclat")} id="reclat" label="Latitude" type="text" fullWidth variant="standard" />
-          <TextField autoFocus margin="dense" {...register("reclong")} id="reclong" label="Longitude" type="text" fullWidth variant="standard" />
+          <TextField autoFocus margin="dense" {...register("nametype")}  name="nametype" label="Name Type" type="text" fullWidth variant="standard" />
+          <TextField autoFocus margin="dense" {...register("recclass")}  name="recclass" label="Class" type="text" fullWidth variant="standard" />
+          <TextField autoFocus margin="dense" {...register("mass")}  name="mass" label="Mass" type="number" fullWidth variant="standard" />
+          <TextField autoFocus margin="dense" {...register("fall")}  name="fall" label="Fall" type="text" fullWidth variant="standard" />
+          <TextField autoFocus margin="dense" {...register("year")}  name="year" label="Year" type="text" fullWidth variant="standard" />
+          <TextField autoFocus margin="dense" {...register("reclat")}  name="reclat" label="Latitude" type="text" fullWidth variant="standard" />
+          <TextField autoFocus margin="dense" {...register("reclong")}  name="reclong" label="Longitude" type="text" fullWidth variant="standard" />
 
         </DialogContent>
 

@@ -2,8 +2,6 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
 
-
-
 const Home = () => {
 
   /*   const [apod, setApod] = useState(false) // delete!!?
@@ -20,8 +18,9 @@ const Home = () => {
   const getApod = async () => {
 
     try {
-      //${process.env.REACT_APP_NASA_APIKEY}
-      const response = await axios.get(`https://api.nasa.gov/planetary/apod?api_key=8CRAxXHyBa5Gv10HlGZjGResR2DuUTRJWiY5iNTn`);
+      const apikey = process.env.REACT_APP_TOKEN
+  
+      const response = await axios.get(`https://api.nasa.gov/planetary/apod?api_key=${apikey}`);
       const result = response.data;
 
 
@@ -69,8 +68,8 @@ const Home = () => {
         <p id="date">{apodData.date}</p>
       </section>
 
-{video? <iframe src={apodData.url} frameborder="0" title="apod video"></iframe> : <img alt="astronomy" src={apodData.url}></img>}
-      
+      {video ? <iframe src={apodData.url} frameborder="0" title="apod video"></iframe> : <img alt="astronomy" src={apodData.url}></img>}
+
 
 
       <div className="description-div">
