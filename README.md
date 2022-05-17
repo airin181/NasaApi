@@ -28,15 +28,15 @@ It's been designed by mobile-first protocol.
 ### Tools
 
 These are the frameworks/libraries used in this project:<br />
-[React.js](https://reactjs.org/)<br />
-[Mongoose.js](https://mongoosejs.org/)<br />
-[Express.js](https://expressjs.org/)<br />
-[Node.js](https://nodejs.org/)<br />
-[Cors.js](https://corsjs.org/)<br />
-[Leaflet.js](https://leafletjs.org/)<br />
-[Dotenv.js](https://dotenvjs.org/)<br />
-  
-Javascript Typescript HTML5 React JQuery CSS3 Bootstrap NodeJS Express MongoDB
+React
+Mongoose
+Express
+Node
+Cors
+Leaflet
+Dotenv
+
+
   ...
 
 
